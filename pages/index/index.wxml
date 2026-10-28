@@ -1,0 +1,56 @@
+<view class="page-shell">
+  <view class="brand-hero">
+    <view class="top-row">
+      <view><view class="brand">弯兔</view><view class="brand-en">ONE TWO</view></view>
+      <view class="top-actions">
+        <view class="history-link" bindtap="goHistory">我的作品 ›</view>
+        <view class="message-link" bindtap="goFeedback">我要留言 ›</view>
+      </view>
+    </view>
+    <view class="intro"><view class="intro-title">一<text class="intro-accent">弯</text>，就有趣。</view><view class="intro-subtitle">用照片，做点好玩的事</view></view>
+    <image class="hero-rabbit" src="/assets/brand/wantu-hero-rabbit.png" mode="aspectFit" />
+  </view>
+
+  <view class="content">
+    <view class="section-head"><view class="section-title">正在玩</view><view class="section-note">照片手账</view></view>
+    <view class="feature-card">
+      <image class="feature-image" src="/assets/showcase/plog-pet.png" mode="aspectFill" />
+      <view class="feature-shade"></view>
+      <view class="feature-label">照片手账</view>
+      <view class="feature-copy"><view class="feature-title">一张照片，写成一页有趣手账</view><view class="feature-desc">白色手写字、轮廓线和小涂鸦，都由 AI 认真添上。</view></view>
+    </view>
+
+    <view wx:if="{{hasPhoto}}" class="ready-card">
+    <image class="ready-preview" src="{{photoPath}}" mode="aspectFill" />
+    <view class="ready-copy">
+      <view class="ready-title">这张照片，要开始弯吗？</view>
+      <view class="ready-note">确认开始后，AI 才会创作并消耗 1 次。</view>
+      <view class="ready-actions">
+        <view class="replace-photo" bindtap="replacePhoto">换一张</view>
+        <button class="start-create" loading="{{starting}}" disabled="{{starting}}" bindtap="startCreate">开始弯 <text>›</text></button>
+      </view>
+    </view>
+    </view>
+
+    <view class="choose-card" wx:else>
+      <view class="choose-copy"><view class="choose-title">从一张照片开始</view><view class="choose-note">亲子、宠物、旅行或一顿好饭，都可以写成自己的 PLOG。</view></view>
+      <view class="choose-actions"><button class="choose-button" bindtap="selectFromAlbum">选照片，开始弯</button><view class="camera-link" bindtap="takePhoto">拍一张</view></view>
+    </view>
+
+    <view class="next-section">
+      <view class="section-head"><view class="section-title">正在玩</view><view class="section-note">照片故事</view></view>
+      <view class="story-cover-card">
+        <swiper wx:if="{{storyCovers.length}}" class="story-cover-swiper" circular autoplay interval="3600" duration="680" previous-margin="16rpx" next-margin="16rpx">
+          <swiper-item wx:for="{{storyCovers}}" wx:key="fileId"><view class="story-page-cover"><image class="story-cover-image" src="{{item.url}}" mode="aspectFill" /></view></swiper-item>
+        </swiper>
+        <view wx:else class="story-cover-loading"><view class="coming-copy"><view class="coming-label">照片故事</view><view class="coming-title">一张照片，续写<br/>一个小故事</view><view class="coming-desc">真实光影，长出绘本里的想象世界。</view></view><image class="coming-rabbit" src="/assets/brand/wantu-digging.png" mode="aspectFit" /></view>
+      </view>
+      <view class="choose-card story-choose-card">
+        <view class="choose-copy"><view class="choose-title">从一张照片开始</view><view class="choose-note">让真实光影，长出一段只属于它的绘本故事。</view></view>
+        <view class="choose-actions"><button class="choose-button story-button" bindtap="selectStoryFromAlbum">选照片，写故事</button><view class="camera-link" bindtap="takeStoryPhoto">拍一张</view></view>
+      </view>
+    </view>
+    <view class="quota" bindtap="goCredits">{{remaining > 0 ? ('还可体验 ' + remaining + ' 次') : '体验次数已用完 · 查看次数包'}}</view>
+    <view class="feedback-link" bindtap="goFeedback"><text class="feedback-dot">●</text> 遇到问题或有好点子？告诉弯兔 ›</view>
+  </view>
+</view>

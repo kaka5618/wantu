@@ -1,0 +1,56 @@
+<view class="page-shell">
+  <view class="hero">
+    <view class="hero-copy">
+      <view class="brand-lockup">
+        <view class="brand-name">弯兔</view>
+        <view class="brand-en">onetwo</view>
+      </view>
+      <view class="eyebrow">创作次数</view>
+      <view class="title">把有趣，<br/>多留几次。</view>
+      <view class="copy">每一次创作，都把生活写进照片里。</view>
+      <view class="quota-chip">当前可用 {{remaining}} 次</view>
+    </view>
+    <image class="hero-rabbit" src="/assets/brand/wantu-hero-rabbit.png" mode="aspectFit" />
+    <view class="hero-spark spark-one">✦</view>
+    <view class="hero-spark spark-two">✦</view>
+  </view>
+
+  <view class="section-title">选择次数包</view>
+  <view wx:for="{{plans}}" wx:key="id" class="plan {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPlan">
+    <view class="plan-top">
+      <view>
+        <view class="plan-name">{{item.name}}</view>
+        <view class="plan-unit">{{item.unit}}</view>
+      </view>
+      <view wx:if="{{item.tag}}" class="plan-tag">{{item.tag}}</view>
+    </view>
+    <view class="plan-bottom">
+      <view class="credits"><text>{{item.credits}}</text> 次 AI 创作</view>
+      <view class="price"><text>¥</text>{{item.price}}</view>
+    </view>
+  </view>
+
+  <view class="notice">
+    <view class="notice-title">弯兔小提醒</view>
+    <view>次数只用于 AI 创作；保存、查看和删除作品不扣次数。模型失败也不会扣除额度。</view>
+  </view>
+
+  <view class="section-title order-title">最近购买</view>
+  <view wx:if="{{orders.length}}" class="order-list">
+    <view wx:for="{{orders}}" wx:key="id" class="order-item">
+      <view>
+        <view class="order-name">{{item.productName}}</view>
+        <view class="order-meta">{{item.paidAt}} · 订单尾号 {{item.orderTail}}</view>
+      </view>
+      <view class="order-right">
+        <view class="order-credits">+{{item.credits}} 次</view>
+        <view class="order-price">¥{{item.amount}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="empty-orders">还没有购买记录</view>
+
+  <button class="buy-button" bindtap="buySelected">购买次数包</button>
+  <button class="back-button" bindtap="continueCreate">返回照片页</button>
+  <view class="footnote">支付由微信支付安全处理；到账次数可在此页面查看。</view>
+</view>

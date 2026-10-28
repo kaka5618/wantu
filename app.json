@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/editor/editor",
+    "pages/story/story",
+    "pages/history/history",
+    "pages/credits/credits",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "navigationBarTitleText": "弯兔",
+    "navigationBarBackgroundColor": "#FFE25A",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fffdf9"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

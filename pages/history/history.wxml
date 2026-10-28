@@ -1,0 +1,32 @@
+<view class="history-page">
+  <view class="page-title">我的作品</view>
+  <view class="page-copy">每一张被认真记录的日常</view>
+
+  <view wx:if="{{loading}}" class="loading">正在加载作品…</view>
+  <view wx:elif="{{items.length}}" class="grid">
+    <view wx:for="{{items}}" wx:key="id" class="work-card" bindtap="preview" bindlongpress="confirmDelete" data-id="{{item.id}}" data-fileid="{{item.fileId}}">
+      <image src="{{item.fileId}}" mode="aspectFill" />
+      <view class="work-label">白色手写 PLOG</view>
+    </view>
+  </view>
+  <view wx:if="{{items.length}}" class="delete-tip">长按作品可从云端删除</view>
+  <view wx:if="{{!loading && !items.length}}" class="empty">
+    <view class="empty-icon">✎</view>
+    <view class="empty-title">还没有作品</view>
+    <view class="empty-copy">挑一张生活照片，把今天写下来吧。</view>
+    <button bindtap="goCreate">去生成第一张</button>
+  </view>
+  <view class="feedback-link" bindtap="goFeedback">遇到问题或有建议？<text>告诉弯兔 ›</text></view>
+
+  <view wx:if="{{selectedWork}}" class="work-modal" catchtap="closePreview">
+    <view class="work-sheet" catchtap="stopTouch">
+      <view class="sheet-top">
+        <view class="sheet-title">这张，已经弯好啦</view>
+        <view class="sheet-close" bindtap="closePreview">×</view>
+      </view>
+      <image class="work-preview" src="{{selectedWork.fileId}}" mode="aspectFit" />
+      <view class="sheet-note">下载到相册后，就可以分享给朋友啦。</view>
+      <button class="download-button" loading="{{downloading}}" disabled="{{downloading}}" bindtap="downloadSelected">下载到相册</button>
+    </view>
+  </view>
+</view>

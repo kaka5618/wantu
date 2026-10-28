@@ -1,0 +1,24 @@
+.history-page { min-height: 100vh; box-sizing: border-box; padding: 48rpx 32rpx; background: #fffaf2; }
+.page-title { color: #132C62; font-size: 48rpx; font-weight: 800; }
+.page-copy { margin-top: 14rpx; color: #7d879b; font-size: 24rpx; }
+.loading { padding-top: 160rpx; color: #9a9ca4; text-align: center; font-size: 25rpx; }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20rpx; margin-top: 42rpx; }
+.work-card { position: relative; overflow: hidden; height: 420rpx; border-radius: 24rpx; background: #e8e6df; box-shadow: 0 10rpx 28rpx rgba(19,44,98,.1); }
+.work-card image { width: 100%; height: 100%; }
+.work-label { position: absolute; right: 14rpx; bottom: 14rpx; padding: 7rpx 10rpx; border-radius: 14rpx; color: rgba(255,255,255,.9); background: rgba(38, 48, 43, .25); font-size: 17rpx; }
+.delete-tip { margin-top: 32rpx; color: #aaabb0; text-align: center; font-size: 20rpx; }
+.empty { display: flex; min-height: 760rpx; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.empty-icon { display: flex; align-items: center; justify-content: center; width: 110rpx; height: 110rpx; border-radius: 55rpx; color: #668a9c; background: #e5f0f4; font-size: 60rpx; }
+.empty-title { margin-top: 30rpx; color: #3d4756; font-size: 32rpx; font-weight: 600; }
+.empty-copy { margin-top: 14rpx; color: #989ba3; font-size: 24rpx; }
+.empty button { width: 280rpx; height: 84rpx; margin-top: 44rpx; border-radius: 42rpx; color: #fff; background: #587da2; font-size: 26rpx; line-height: 84rpx; }
+.work-modal { position: fixed; z-index: 20; inset: 0; display: flex; align-items: flex-end; box-sizing: border-box; padding: 28rpx; background: rgba(10, 27, 62, .56); }
+.work-sheet { width: 100%; max-height: 92vh; box-sizing: border-box; padding: 30rpx 28rpx 36rpx; overflow: auto; border-radius: 34rpx; background: #fffaf2; }
+.sheet-top { display: flex; align-items: center; justify-content: space-between; }
+.sheet-title { color: #132C62; font-size: 31rpx; font-weight: 800; }
+.sheet-close { display: flex; align-items: center; justify-content: center; width: 52rpx; height: 52rpx; border-radius: 50%; color: #132C62; background: #ffe56b; font-size: 42rpx; line-height: 1; }
+.work-preview { display: block; width: 100%; max-height: 850rpx; margin-top: 25rpx; border-radius: 22rpx; background: #eff1f5; }
+.sheet-note { margin: 22rpx 4rpx; color: #737d92; font-size: 22rpx; text-align: center; }
+.download-button { height: 94rpx; line-height: 94rpx; border-radius: 48rpx; color: #fff; background: #132C62; font-size: 29rpx; font-weight: 800; }
+.feedback-link { margin: 46rpx 0 10rpx; color: #8790a1; text-align: center; font-size: 22rpx; }
+.feedback-link text { margin-left: 8rpx; color: #132C62; font-weight: 700; }

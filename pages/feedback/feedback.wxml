@@ -1,0 +1,44 @@
+<view class="feedback-page">
+  <block wx:if="{{submitted}}">
+    <view class="success-card">
+      <view class="rabbit-mark">⌒ᴥ⌒</view>
+      <view class="success-title">已经收到啦！</view>
+      <view class="success-copy">每一条认真写下的话，都会帮弯兔变得更好玩。</view>
+      <button class="back-button" bindtap="goBack">回到弯兔</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="hero-card">
+      <view class="hero-kicker">ONE TWO LISTENS</view>
+      <view class="page-title">想和弯兔说点什么？</view>
+      <view class="page-copy">出图遇到小问题，或冒出一个好点子，都可以留在这里。</view>
+      <view class="rabbit-doodle">⌒ᴥ⌒</view>
+    </view>
+
+    <view class="form-card">
+      <view class="field-title">这次想反馈什么？</view>
+      <view class="type-list">
+        <view wx:for="{{types}}" wx:key="value" class="type-chip {{type === item.value ? 'type-chip-active' : ''}}" data-type="{{item.value}}" bindtap="chooseType">{{item.icon}} {{item.label}}</view>
+      </view>
+
+      <view class="field-row"><view class="field-title">具体说说吧</view><view class="count">{{content.length}}/300</view></view>
+      <textarea class="feedback-textarea" value="{{content}}" maxlength="300" placeholder="比如：这张图等得有点久；我想试试更多手写风格…" placeholder-class="placeholder" auto-height bindinput="inputContent" />
+
+      <view class="field-title image-title">附一张截图 <text>（选填）</text></view>
+      <view class="image-list">
+        <view wx:for="{{images}}" wx:key="path" class="image-item">
+          <image src="{{item.path}}" mode="aspectFill" />
+          <view class="remove-image" data-index="{{index}}" bindtap="removeImage">×</view>
+        </view>
+        <view wx:if="{{images.length < 3}}" class="add-image" bindtap="chooseImage"><text>＋</text><view>添加图片</view></view>
+      </view>
+
+      <view class="field-title contact-title">联系方式 <text>（选填，方便回复你）</text></view>
+      <input class="contact-input" value="{{contact}}" maxlength="80" placeholder="微信号或手机号" placeholder-class="placeholder" bindinput="inputContact" />
+    </view>
+
+    <button class="submit-button" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submitFeedback">把心声交给弯兔</button>
+    <view class="privacy-note">仅用于处理你的反馈，不会公开展示。</view>
+  </block>
+</view>

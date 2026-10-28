@@ -1,0 +1,19 @@
+# Operating-system and local editor files
+.DS_Store
+project.private.config.json
+
+# Dependencies and generated build/test output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+test-results/
+playwright-report/
+scf/*.zip
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key

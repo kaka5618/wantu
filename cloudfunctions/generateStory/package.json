@@ -1,0 +1,1 @@
+{"name":"generate-story","version":"1.0.0","main":"index.js","dependencies":{"axios":"^1.8.4","wx-server-sdk":"4.0.2"}}

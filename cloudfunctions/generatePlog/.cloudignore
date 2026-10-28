@@ -1,0 +1,8 @@
+# The WeChat cloud function deployment installs dependencies in the cloud.
+# Keep local install artifacts out of the source package (2 MB upload limit).
+node_modules/
+npm-debug.log*
+.DS_Store
+.env
+.env.*
+fonts/fonts.conf
